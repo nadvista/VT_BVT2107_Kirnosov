@@ -1,0 +1,5 @@
+database="service_db"
+user="postgres"
+password="qwerty"
+host="localhost"
+port="5432"
