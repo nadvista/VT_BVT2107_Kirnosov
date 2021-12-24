@@ -56,7 +56,7 @@ class MainWindow(QWidget):
         joinButton = QPushButton("Join")
 
         table.setCellWidget(table.rowCount()-1, 3, joinButton)
-        joinButton.clicked.connect(lambda:self.add_line(table.rowCount()-1,table,dayName))
+        joinButton.clicked.connect(lambda:self._add_line(table.rowCount()-1,table,dayName))
     def _update_day_table(self,day,table):
 
         self.cursor.execute("SELECT * FROM timetable.shedule WHERE (frequency=%s OR frequency IS NULL OR frequency='' OR frequency='ALWAYS') AND day=%s ORDER BY start_time",(GetWeek(),day.upper()))
@@ -107,7 +107,7 @@ class MainWindow(QWidget):
         except:
             QMessageBox.about(self, "Error", "Can't delete")
         pass
-    def add_line(self,i,table,dayName):
+    def _add_line(self,i,table,dayName):
         time = table.item(i,1).text()
         name = table.item(i,0).text()
         freq = table.item(i,2).text()

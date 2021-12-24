@@ -12,7 +12,7 @@ conn = psycopg2.connect(database="bot_db",
                         host="localhost",
                         port="5432")
 cursor = conn.cursor()
-token = '2145993490:AAHF_OTmW-2u2gJo7XFViYQrxPoXhn5IKNw'
+token = '<enter your token here>'
 bot = telebot.TeleBot(token)
 
 unregistered_users: Dict[int, List[str]] = {}
